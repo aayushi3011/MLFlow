@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1756707862811
+current_stage: None
+description: ''
+last_updated_timestamp: 1756707862811
+name: TitanicModel
+run_id: 5c729103ddb947a0bab0494ee3c63af0
+run_link: ''
+source: models:/TitanicModel/1
+status: READY
+status_message: null
+storage_location: file:///C:/Users/aayus/Documents/AILabProject2/mlruns/0/5c729103ddb947a0bab0494ee3c63af0/artifacts/model
+user_id: null
+version: 2

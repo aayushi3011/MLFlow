@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/aayus/Documents/AILabProject2/mlruns/0/63fdbf03b4264b6195fd5af68123b718/artifacts
+end_time: 1756720517846
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 63fdbf03b4264b6195fd5af68123b718
+run_name: honorable-chimp-347
+run_uuid: 63fdbf03b4264b6195fd5af68123b718
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756720425233
+status: 3
+tags: []
+user_id: aayus

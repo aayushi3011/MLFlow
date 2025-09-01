@@ -29,6 +29,11 @@ stages:
   train:
     cmd: python src/train_model.py
     deps:
+    - path: data/processed/test_processed.csv
+      hash: md5
+      md5: 974218ddbe4cace3a63f2628dcfbb215.dir
+      size: 17493
+      nfiles: 4
     - path: data/processed/train_processed.csv
       hash: md5
       md5: 5c7fae921e96014b5b0e47b6faf5eded.dir
@@ -41,20 +46,20 @@ stages:
     outs:
     - path: models/best_rf_model
       hash: md5
-      md5: f213f3d9f10a56e285157d89ef345885.dir
-      size: 35904
+      md5: 62ef854ed8b4530d433f9f8e40d9f62d.dir
+      size: 38865
       nfiles: 68
     - path: reports/figures/confusion_matrix.png
       hash: md5
-      md5: 33ac6fcd96784d4571b90db093888ce7
-      size: 16156
+      md5: b3ebf05665db3940f4a32f86af52c58e
+      size: 15722
   evaluate:
     cmd: python src/test_api.py
     deps:
     - path: models/best_rf_model
       hash: md5
-      md5: f213f3d9f10a56e285157d89ef345885.dir
-      size: 35904
+      md5: 62ef854ed8b4530d433f9f8e40d9f62d.dir
+      size: 38865
       nfiles: 68
     - path: src/test_api.py
       hash: md5
