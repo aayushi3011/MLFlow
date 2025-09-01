@@ -1,0 +1,31 @@
+# Python cache and virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+.Python
+.venv*/
+env/
+venv/
+ENV/
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Spark / ML outputs
+models/
+data/processed/
+reports/api_test_results.csv
+reports/retrain_log.txt
+reports/resource_optimization_results.csv
+reports/figures/*.png
+
+# DVC cache (only keep .dvc files in git)
+.dvc/cache/
+
+# OS files
+Thumbs.db
+.DS_Store
