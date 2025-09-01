@@ -1,0 +1,28 @@
+stages:
+  preprocess:
+    cmd: python src/preprocess_data.py
+    deps:
+      - src/preprocess_data.py
+      - data/raw/train.csv
+      - data/raw/test.csv
+    outs:
+      - data/processed/train_processed.csv
+      - data/processed/test_processed.csv
+
+  train:
+    cmd: python src/train_model.py
+    deps:
+      - src/train_model.py
+      - data/processed/train_processed.csv
+      - data/processed/test_processed.csv
+    outs:
+      - models/best_rf_model
+      - reports/figures/confusion_matrix.png
+
+  evaluate:
+    cmd: python src/test_api.py
+    deps:
+      - src/test_api.py
+      - models/best_rf_model
+    outs:
+      - reports/api_test_results.csv

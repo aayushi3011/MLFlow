@@ -1,0 +1,79 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess_data.py
+    deps:
+    - path: data/raw/test.csv
+      hash: md5
+      md5: 7533b82eae4b582610cbd68aa636b017
+      size: 28629
+    - path: data/raw/train.csv
+      hash: md5
+      md5: 2309cc5f04782ed9bb6016d9f4e381cf
+      size: 61194
+    - path: src/preprocess_data.py
+      hash: md5
+      md5: 9f3e95dee48e87ea9e19c8ed441f6bbe
+      size: 2121
+    outs:
+    - path: data/processed/test_processed.csv
+      hash: md5
+      md5: 974218ddbe4cace3a63f2628dcfbb215.dir
+      size: 17493
+      nfiles: 4
+    - path: data/processed/train_processed.csv
+      hash: md5
+      md5: 5c7fae921e96014b5b0e47b6faf5eded.dir
+      size: 37996
+      nfiles: 4
+  train:
+    cmd: python src/train_model.py
+    deps:
+    - path: data/processed/train_processed.csv
+      hash: md5
+      md5: 5c7fae921e96014b5b0e47b6faf5eded.dir
+      size: 37996
+      nfiles: 4
+    - path: src/train_model.py
+      hash: md5
+      md5: 6f70dc7047c8f1c99c5f479572687d1d
+      size: 5161
+    outs:
+    - path: models/best_rf_model
+      hash: md5
+      md5: f213f3d9f10a56e285157d89ef345885.dir
+      size: 35904
+      nfiles: 68
+    - path: reports/figures/confusion_matrix.png
+      hash: md5
+      md5: 33ac6fcd96784d4571b90db093888ce7
+      size: 16156
+  evaluate:
+    cmd: python src/test_api.py
+    deps:
+    - path: models/best_rf_model
+      hash: md5
+      md5: f213f3d9f10a56e285157d89ef345885.dir
+      size: 35904
+      nfiles: 68
+    - path: src/test_api.py
+      hash: md5
+      md5: 50301d400fd0f2491bf6d666a8ae6c6d
+      size: 1747
+    outs:
+    - path: reports/api_test_results.csv
+      hash: md5
+      md5: 525e677c776ac1f2b43908d91c0a9093
+      size: 42
+  deploy:
+    cmd: python src/deploy_api.py
+    deps:
+    - path: models/best_rf_model
+      hash: md5
+      md5: f213f3d9f10a56e285157d89ef345885.dir
+      size: 35904
+      nfiles: 68
+    - path: src/deploy_api.py
+      hash: md5
+      md5: 5250bb691d0df6a5329afe1cf90f8c1d
+      size: 2010
