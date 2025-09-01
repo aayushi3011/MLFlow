@@ -48,7 +48,7 @@ It demonstrates data preprocessing, model training with experiment tracking, mod
 
 ### 1️⃣ Clone repo & create environment
 ```bash
-git clone https://github.com/your-username/titanic-mlops.git
+git clone https://github.com/aayushi3011/titanic-mlops.git
 cd titanic-mlops
 python -m venv .venv310
 .venv310\Scripts\activate   # Windows
